@@ -49,8 +49,8 @@ class Contenedor {
 const contenedor = new Contenedor("productos.txt");
 
 const producto1 = {
-  title: "consola",
-  price: 10000,
+  title: "Tenedor",
+  price: 50.45,
 };
 
 contenedor.save(producto1);
