@@ -9,7 +9,6 @@ const producto1 = {
 };
 
 const constructor = new Contenedor("./productos.txt");
-
 constructor.save(producto1);
 
 const app = express();

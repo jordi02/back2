@@ -44,6 +44,13 @@ class Contenedor {
     fs.writeFileSync(this.archivo, "[]");
     return "[]";
   }
+
+  getRandom() {
+    const data = fs.readFileSync(this.archivo, "utf-8");
+    const dataParseada = JSON.parse(data);
+    let random = dataParseada[Math.floor(Math.random() * dataParseada.length)];
+    return random;
+  }
 }
 
 const contenedor = new Contenedor("productos.txt");
@@ -59,3 +66,5 @@ contenedor.deleteById(3);
 console.log(contenedor.getAll());
 // contenedor.deleteAll();
 // contenedor.getAll();
+
+module.exports = Contenedor
