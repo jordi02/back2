@@ -51,20 +51,33 @@ class Contenedor {
     let random = dataParseada[Math.floor(Math.random() * dataParseada.length)];
     return random;
   }
+
+
+  updateById(id, objetoNuevo) {
+    const data = fs.readFileSync(this.archivo, "utf-8");
+    let dataParseada = JSON.parse(data);
+    let productoViejo = dataParseada.find((objeto) => objeto.id === id);
+    let mensaje = "Se reemplazo el producto";
+    if (productoViejo === undefined) {
+      throw { msg: "404 Not found" };
+    }
+    let productosFiltrados = dataParseada.filter((objeto) => objeto.id !== id);
+    productoViejo = { id, ...objetoNuevo };
+    productosFiltrados.push(productoViejo);
+    fs.writeFileSync(this.archivo, JSON.stringify(productosFiltrados, null, 2));
+    return mensaje;
+  }
 }
 
-const contenedor = new Contenedor("productos.txt");
+// const contenedor = new Contenedor("productos.txt");
 
-const producto1 = {
-  title: "Tenedor",
-  price: 50.45,
-};
 
-contenedor.save(producto1);
-console.log(contenedor.getById(3));
-contenedor.deleteById(3);
-console.log(contenedor.getAll());
-// contenedor.deleteAll();
-// contenedor.getAll();
+
+// contenedor.save(producto1);
+// console.log(contenedor.getById(3));
+// contenedor.deleteById(3);
+// console.log(contenedor.getAll());
+// // contenedor.deleteAll();
+// // contenedor.getAll();
 
 module.exports = Contenedor

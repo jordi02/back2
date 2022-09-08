@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "Tenedor",
+    "price": 50.45
+  },
+  {
+    "id": 2,
+    "title": "Tenedor",
+    "price": 50.45
+  },
+  {
+    "id": 3,
+    "title": "naranja",
+    "price": "23"
+  },
+  {
+    "id": 4,
+    "title": "naranja",
+    "price": "23"
+  }
+]
